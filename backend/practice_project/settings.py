@@ -26,10 +26,13 @@ SECRET_KEY = 'django-insecure-tmm+$*s5-ldfqwchhtq!p$gszxh)31su11xl8_ue=#_9720^i+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS =  os.getenv(
-    "DJANGO_ALLOWED_HOSTS",
-    "localhost,127.0.0.1"
-).split(",")
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    "192.168.0.101",
+    "server",
+    "pitstop-w4jl.onrender.com"
+]
 
 
 # Application definition
@@ -185,6 +188,9 @@ HEADLESS_FRONTEND_URLS = {
     "account_reset_password_from_key": "http://localhost:3000/account/password/reset/key/{key}",
     "account_signup": "http://localhost:3000/account/signup",
 }
+
+
+ACCOUNT_SIGNUP_FIELDS = ["email*", "password1*", "password2*"]
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
