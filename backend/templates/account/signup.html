@@ -1,0 +1,32 @@
+{% extends "_base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}Sign Up{% endblock title %}
+
+{% block content %}
+
+<div class="test-section">
+    <div class="hero-image">
+        <div class="logo">PITSTOP</div>
+    </div>
+    <div class="headings">
+        <h2>How would you like to use Pitstop?</h2>
+        <h5 style="font-weight: 400;">REGISTER AS</h5>
+        <select class="cool-box" name="user-type" id="user-type">
+            <option class="cool-box" value="" disabled selected hidden>Type</option> 
+            <option class="cool-box" value="individual">Individual</option>
+            <option class="cool-box" value="business-owner">Business/Garage Owner</option>
+        </select>
+
+        <a href="#"><button class="cool-box google-button">Continue with Google</button></a>
+        <a href="#"><button class="cool-box apple-button">Continue with Apple</button></a>
+    </div>
+</div>
+
+{% comment %} <h2>Sign Up</h2>
+<form method="post">
+{% csrf_token %}
+{{ form|crispy }}
+<button class="btn btn-success" type="submit">Sign Up</button>
+</form> {% endcomment %}
+{% endblock content %}

@@ -1,0 +1,43 @@
+import React from "react";
+import Image from "next/image";
+
+export default function MostDemandCard() {
+  return (
+    <div className="item-card">
+      <div className="card">
+        <div className="image-holder">
+          <Image
+            src={"/section-images/most-demand.png"}
+            alt=""
+            height={124}
+            width={124}
+          ></Image>
+        </div>
+        <div className="text-holder">
+          <div className="product-name">
+            <span>Coolant Red</span>
+            <span>1.5L</span>
+          </div>
+          <div className="location">
+            <span className="location-icon">
+              <svg
+                width="14"
+                height="18"
+                viewBox="0 0 14 18"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M7 0C3.13556 0 0 2.59192 0 5.78571C0 10.9286 7 18 7 18C7 18 14 10.9286 14 5.78571C14 2.59192 10.8644 0 7 0ZM7 9C6.44621 9 5.90486 8.84919 5.4444 8.56664C4.98395 8.28408 4.62506 7.88248 4.41314 7.41261C4.20121 6.94275 4.14576 6.42572 4.2538 5.92691C4.36184 5.4281 4.62851 4.96992 5.0201 4.6103C5.41169 4.25068 5.9106 4.00577 6.45375 3.90655C6.99689 3.80733 7.55988 3.85826 8.07151 4.05288C8.58315 4.24751 9.02045 4.57709 9.32811 4.99996C9.63578 5.42283 9.8 5.91999 9.8 6.42857C9.79919 7.11033 9.50393 7.76395 8.979 8.24602C8.45408 8.7281 7.74236 8.99926 7 9Z"
+                  fill="#4F4F4F"
+                />
+              </svg>
+            </span>
+            <span style={{ color: "#A4A4A4" }}>Location:</span>
+            <span>Sharjah</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
