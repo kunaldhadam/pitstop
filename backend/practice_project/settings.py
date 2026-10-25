@@ -218,6 +218,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:19006",
     "http://127.0.0.1:8081",
     "http://127.0.0.1:19006",
+    "https://pitstop-frontend-7l94.onrender.com",
 ]
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:3000",
@@ -225,6 +226,7 @@ CSRF_TRUSTED_ORIGINS = [
     "http://localhost:19006",
     "http://127.0.0.1:8081",
     "http://127.0.0.1:19006",
+    "https://pitstop-frontend-7l94.onrender.com",
 ]
 
 CSRF_COOKIE_HTTPONLY = False
