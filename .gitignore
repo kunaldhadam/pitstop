@@ -12,7 +12,7 @@
 
 # testing
 /coverage
-
+/backup_dir
 # next.js
 /.next/
 /out/
