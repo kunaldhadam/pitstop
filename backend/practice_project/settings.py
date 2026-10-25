@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,19 +22,37 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-tmm+$*s5-ldfqwchhtq!p$gszxh)31su11xl8_ue=#_9720^i+'
-
+SECRET_KEY = os.environ["DJANGO_SECRET_KEY"]
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get("DJANGO_DEBUG", "False").lower() == "true"
+
+DATABASE_URL = os.environ.get("DATABASE_URL")
 
 ALLOWED_HOSTS = [
+    "pitstop-w4jl.onrender.com",
     "localhost",
     "127.0.0.1",
-    "192.168.0.101",
-    "server",
-    "pitstop-w4jl.onrender.com"
 ]
 
+
+if DATABASE_URL:
+    DATABASES = {
+        "default": dj_database_url.parse(
+            DATABASE_URL,
+            conn_max_age=600,
+        )
+    }
+elif DEBUG:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "db.sqlite3",
+        }
+    }
+else:
+    raise ValueError("DATABASE_URL environment variable is not set")
+
+print("DATABASE ENGINE:", DATABASES["default"]["ENGINE"])
 
 # Application definition
 
@@ -240,12 +259,12 @@ REST_FRAMEWORK = {
     ]
 }
 
-ALLOWED_HOSTS = [
-    "localhost",
-    "127.0.0.1",
-    "192.168.0.101",
-    "server",
-]
+# ALLOWED_HOSTS = [
+#     "localhost",
+#     "127.0.0.1",
+#     "192.168.0.101",
+#     "server",
+# ]
 
 CORS_ALLOWED_ORIGINS = [
     "http://192.168.0.101:3000",
