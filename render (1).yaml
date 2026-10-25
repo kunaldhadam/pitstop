@@ -1,20 +1,20 @@
 # Exported from Render on 2026-10-25T18:31:31Z
 version: "1"
 projects:
-- name: Pitstop
-  environments:
-  - name: Production
-    services:
-    - type: web
-      name: practice_project
-      runtime: node
-      repo: https://github.com/kunaldhadam/practice_project
-      plan: free
-      envVars:
-      - key: NEXT_PUBLIC_API_URL
-        sync: false
-      region: oregon
-      buildCommand: npm install && npm run build
-      startCommand: npm start
-      autoDeployTrigger: commit
-      rootDir: frontend/website/
+  - name: Pitstop
+    environments:
+      - name: Production
+        services:
+          - type: web
+            name: practice_project
+            runtime: node
+            repo: https://github.com/kunaldhadam/pitstop
+            plan: free
+            envVars:
+              - key: NEXT_PUBLIC_API_URL
+                sync: false
+            region: oregon
+            buildCommand: npm install && npm run build
+            startCommand: npm start
+            autoDeployTrigger: commit
+            rootDir: frontend/website/

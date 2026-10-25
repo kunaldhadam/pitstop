@@ -1,31 +1,32 @@
 # Exported from Render on 2026-10-25T18:31:21Z
 version: "1"
 projects:
-- name: Pitstop
-  environments:
-  - name: Production
-    services:
-    - type: web
-      name: pitstop_api
-      runtime: python
-      repo: https://github.com/kunaldhadam/practice_project
-      plan: free
-      envVars:
-      - key: DJANGO_SUPERUSER_PASSWORD
-        sync: false
-      - key: DJANGO_SUPERUSER_EMAIL
-        sync: false
-      - key: DJANGO_SUPERUSER_USERNAME
-        sync: false
-      - key: DATABASE_URL
-        sync: false
-      - key: DJANGO_DEBUG
-        sync: false
-      - key: DJANGO_SECRET_KEY
-        sync: false
-      region: oregon
-      buildCommand: pip install -r requirements.txt && python manage.py collectstatic
-        --no-input
-      startCommand: gunicorn practice_project.wsgi:application
-      autoDeployTrigger: commit
-      rootDir: backend/
+  - name: Pitstop
+    environments:
+      - name: Production
+        services:
+          - type: web
+            name: pitstop_api
+            runtime: python
+            repo: https://github.com/kunaldhadam/pitstop
+            plan: free
+            envVars:
+              - key: DJANGO_SUPERUSER_PASSWORD
+                sync: false
+              - key: DJANGO_SUPERUSER_EMAIL
+                sync: false
+              - key: DJANGO_SUPERUSER_USERNAME
+                sync: false
+              - key: DATABASE_URL
+                sync: false
+              - key: DJANGO_DEBUG
+                sync: false
+              - key: DJANGO_SECRET_KEY
+                sync: false
+            region: oregon
+            buildCommand:
+              pip install -r requirements.txt && python manage.py collectstatic
+              --no-input
+            startCommand: gunicorn practice_project.wsgi:application
+            autoDeployTrigger: commit
+            rootDir: backend/
