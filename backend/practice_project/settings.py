@@ -126,24 +126,24 @@ WSGI_APPLICATION = 'practice_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-database_engine = os.environ.get("DB_ENGINE", "django.db.backends.sqlite3")
-database_password = os.environ.get("DB_PASSWORD", "")
-database_password_file = os.environ.get("DB_PASSWORD_FILE")
-if database_password_file:
-    database_password = Path(database_password_file).read_text(
-        encoding="utf-8"
-    ).strip()
+# database_engine = os.environ.get("DB_ENGINE", "django.db.backends.sqlite3")
+# database_password = os.environ.get("DB_PASSWORD", "")
+# database_password_file = os.environ.get("DB_PASSWORD_FILE")
+# if database_password_file:
+#     database_password = Path(database_password_file).read_text(
+#         encoding="utf-8"
+#     ).strip()
 
-DATABASES = {
-    "default": {
-        "ENGINE": database_engine,
-        "NAME": os.environ.get("DB_NAME", BASE_DIR / "db.sqlite3"),
-        "USER": os.environ.get("DB_USER", ""),
-        "PASSWORD": database_password,
-        "HOST": os.environ.get("DB_HOST", ""),
-        "PORT": os.environ.get("DB_PORT", ""),
-    }
-}
+# DATABASES = {
+#     "default": {
+#         "ENGINE": database_engine,
+#         "NAME": os.environ.get("DB_NAME", BASE_DIR / "db.sqlite3"),
+#         "USER": os.environ.get("DB_USER", ""),
+#         "PASSWORD": database_password,
+#         "HOST": os.environ.get("DB_HOST", ""),
+#         "PORT": os.environ.get("DB_PORT", ""),
+#     }
+# }
 
 
 # Password validation
