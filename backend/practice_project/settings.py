@@ -29,7 +29,7 @@ DEBUG = os.environ.get("DJANGO_DEBUG", "False").lower() == "true"
 DATABASE_URL = os.environ.get("DATABASE_URL")
 
 ALLOWED_HOSTS = [
-    "pitstop-w4jl.onrender.com",
+    "pitstop-ihhv.onrender.com",
     "localhost",
     "127.0.0.1",
 ]
@@ -52,7 +52,7 @@ elif DEBUG:
 else:
     raise ValueError("DATABASE_URL environment variable is not set")
 
-print("DATABASE ENGINE:", DATABASES["default"]["ENGINE"])
+# print("DATABASE ENGINE:", DATABASES["default"]["ENGINE"])
 
 # Application definition
 
