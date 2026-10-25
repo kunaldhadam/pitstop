@@ -269,10 +269,10 @@ REST_FRAMEWORK = {
 #     "server",
 # ]
 
-CORS_ALLOWED_ORIGINS = [
-    "http://192.168.0.101:3000",
-    "http://localhost:3000",
-]
+# CORS_ALLOWED_ORIGINS = [
+#     "http://192.168.0.101:3000",
+#     "http://localhost:3000",
+# ]
 
 PHONE_OTP_TTL_SECONDS = int(os.environ.get("PHONE_OTP_TTL_SECONDS", "300"))
 PHONE_OTP_TOKEN_TTL_SECONDS = int(
