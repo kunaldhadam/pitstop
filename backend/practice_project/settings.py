@@ -29,12 +29,10 @@ DEBUG = os.environ.get("DJANGO_DEBUG", "False").lower() == "true"
 
 
 
-ALLOWED_HOSTS = [
-    "pitstop-ihhv.onrender.com",
-    "localhost",
-    "127.0.0.1",
-    "server",
-]
+ALLOWED_HOSTS = os.environ.get(
+    "ALLOWED_HOSTS",
+    "localhost,127.0.0.1"
+).split(",")
 
 
 DATABASE_URL = os.environ.get("DATABASE_URL")
