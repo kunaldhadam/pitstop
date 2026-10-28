@@ -39,11 +39,18 @@ RUN --mount=type=cache,target=/root/.cache/pip \
     python -m pip install -r requirements.txt
 
 # Switch to the non-privileged user to run the application.
-USER appuser
 
 # Copy the source code into the container.
 COPY backend/ .
 
+# Prepare the static files directory and collect static assets.
+RUN mkdir -p /app/staticfiles \
+    && chown -R appuser:appuser /app/staticfiles
+
+RUN mkdir -p /app/staticfiles /app/media \
+    && chown -R appuser:appuser /app/staticfiles /app/media
+
+USER appuser
 # Expose the port that the application listens on.
 EXPOSE 8000
 
